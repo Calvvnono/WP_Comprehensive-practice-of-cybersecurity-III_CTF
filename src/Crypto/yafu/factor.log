@@ -1,0 +1,30 @@
+11/05/24 15:32:44 v1.34.5 @ Y9000X, 
+11/05/24 15:32:44 v1.34.5 @ Y9000X, ****************************
+11/05/24 15:32:44 v1.34.5 @ Y9000X, Starting factorization of 197
+11/05/24 15:32:44 v1.34.5 @ Y9000X, using pretesting plan: normal
+11/05/24 15:32:44 v1.34.5 @ Y9000X, no tune info: using qs/gnfs crossover of 95 digits
+11/05/24 15:32:44 v1.34.5 @ Y9000X, ****************************
+11/05/24 15:32:44 v1.34.5 @ Y9000X, div: found prime factor = 197
+11/05/24 15:32:44 v1.34.5 @ Y9000X, Total factoring time = 0.0020 seconds
+11/05/24 15:33:27 v1.34.5 @ Y9000X, 
+11/05/24 15:33:27 v1.34.5 @ Y9000X, ****************************
+11/05/24 15:33:27 v1.34.5 @ Y9000X, Starting factorization of 12357675836252651780868744805933203354266740014213703909108996486480512535470415471906544247953482389889903107067569313630360578474683735772331543401524223389289579960591836222894032057963676640422630295053272954709539145132498580106191810687543424509334603355274606677203140846185978498512593159537475901796731126748586304280526501994782180134885489739734644414957279277067752262733735226539993101189272943538423812565867782914752848709340559495817814683787924948075205224430257803357673772146792548436912393289198197751245427287444578285212584588519428949986139649083202249432489378949050206884188725507273751339573
+11/05/24 15:33:27 v1.34.5 @ Y9000X, using pretesting plan: normal
+11/05/24 15:33:27 v1.34.5 @ Y9000X, no tune info: using qs/gnfs crossover of 95 digits
+11/05/24 15:33:27 v1.34.5 @ Y9000X, ****************************
+11/05/24 15:33:27 v1.34.5 @ Y9000X, rho: x^2 + 3, starting 1000 iterations on C617
+11/05/24 15:33:27 v1.34.5 @ Y9000X, rho: x^2 + 2, starting 1000 iterations on C617
+11/05/24 15:33:27 v1.34.5 @ Y9000X, rho: x^2 + 1, starting 1000 iterations on C617
+11/05/24 15:33:27 v1.34.5 @ Y9000X, pm1: starting B1 = 150K, B2 = gmp-ecm default on C617
+11/05/24 15:33:27 v1.34.5 @ Y9000X, current ECM pretesting depth: 0.00
+11/05/24 15:33:27 v1.34.5 @ Y9000X, scheduled 30 curves at B1=2000 toward target pretesting depth of 189.85
+11/05/24 15:33:29 v1.34.5 @ Y9000X, Finished 30 curves using Lenstra ECM method on C617 input, B1=2K, B2=gmp-ecm default
+11/05/24 15:33:29 v1.34.5 @ Y9000X, current ECM pretesting depth: 15.18
+11/05/24 15:33:29 v1.34.5 @ Y9000X, scheduled 74 curves at B1=11000 toward target pretesting depth of 189.85
+11/05/24 15:33:42 v1.34.5 @ Y9000X, Finished 74 curves using Lenstra ECM method on C617 input, B1=11K, B2=gmp-ecm default
+11/05/24 15:33:42 v1.34.5 @ Y9000X, current ECM pretesting depth: 20.24
+11/05/24 15:33:42 v1.34.5 @ Y9000X, scheduled 214 curves at B1=50000 toward target pretesting depth of 189.85
+11/05/24 15:38:07 v1.34.5 @ Y9000X, Finished 214 curves using Lenstra ECM method on C617 input, B1=50K, B2=gmp-ecm default
+11/05/24 15:38:07 v1.34.5 @ Y9000X, pm1: starting B1 = 3750K, B2 = gmp-ecm default on C617
+11/05/24 15:38:21 v1.34.5 @ Y9000X, current ECM pretesting depth: 25.33
+11/05/24 15:38:21 v1.34.5 @ Y9000X, scheduled 430 curves at B1=250000 toward target pretesting depth of 189.85

