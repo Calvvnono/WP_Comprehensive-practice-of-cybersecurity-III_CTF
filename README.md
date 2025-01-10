@@ -786,7 +786,7 @@ p.interactive()
 
 ## 堆溢出
 
-本题需要利用堆溢出漏洞来泄露 libc 地址并执行 shellcode。程序使用 malloc 和 free 函数进行堆内存管理，存在堆溢出漏洞。我们的目标是利用堆溢出漏洞泄露 libc 的基地址，并将 __malloc_hook 函数指针修改为 shellcode 的地址，从而在下次调用 malloc 时执行 shellcode。首先，我们申请一个较大的堆块（大于 0x408），并将其释放，使其进入 unsorted bin。此时，该堆块的 fd 指针会指向 main_arena+96 的位置。我们可以通过打印该堆块的内容来泄露 main_arena 的地址。然后，我们根据 main_arena 的地址计算出 __malloc_hook 的地址和 libc 的基地址。接下来，我们利用 tcache poisoning 技术修改 __malloc_hook 指针。我们首先释放一个较小的堆块（例如 0x20），并修改其 fd 指针，使其指向 __malloc_hook。然后，我们申请两次堆块，第一次申请会返回我们伪造的堆块地址，第二次申请会返回 __malloc_hook 的地址。此时，我们可以向 __malloc_hook 写入 shellcode 的地址。最后，我们再次调用 malloc 函数，程序会跳转到 __malloc_hook 指向的地址，即 shellcode 的地址，从而执行 shellcode，获得 shell，最终读取 flag。
+本题需要利用堆溢出漏洞来泄露 libc 地址并执行 shellcode。程序使用 malloc 和 free 函数进行堆内存管理，存在堆溢出漏洞。我们的目标是利用堆溢出漏洞泄露 libc 的基地址，并将 __malloc_hook 函数指针修改为 shellcode 的地址，从而在下次调用 malloc 时执行 shellcode。首先，我们申请一个较大的堆块（大于 0x408），并将其释放，使其进入 unsorted bin。此时，该堆块的 fd 指针会指向 main_arena+96 的位置。我们可以通过打印该堆块的内容来泄露 main_arena 的地址。然后，我们根据 main_arena 的地址计算出 __malloc_hook 的地址和 libc 的基地址。接下来，我们利用 tcache poisoning 技术修改 __malloc_hook 指针。我们首先释放一个较小的堆块（例如 0x20），并修改其 fd 指针，使其指向 __malloc_hook。然后，我们申请两次堆块，第一次申请会返回我们伪造的堆块地址，第二次申请会返回 __malloc_hook 的地址。此时，我们可以向 __malloc_hook 写入 shellcode 的地址。最后，我们再次调用 malloc 函数，程序会跳转到 __malloc_hook 指向的地址，即 shellcode 的地址，从而执行 shellcode，获得 shell。
 
 ```python
 from pwn import *
