@@ -685,7 +685,7 @@ p.interactive()
 
 ## ret2libc
 
-本题需要利用 ret2libc 技术来获取 shell。程序没有直接给出 system 函数和 /bin/sh 字符串的地址，但我们可以利用程序中已有的 puts 函数和 GOT 表来泄露 libc 的基地址。首先，我们通过栈溢出漏洞构造 ROP 链，调用 puts 函数打印 puts 函数在 GOT 表中的实际地址。然后，我们根据 puts 函数的实际地址和 libc 库文件中 puts 函数的偏移量，计算出 libc 的基地址。接下来，我们可以根据 libc 的基地址和 libc 库文件中 system 函数和 /bin/sh 字符串的偏移量，计算出 system 函数和 /bin/sh 字符串的实际地址。最后，我们再次利用栈溢出漏洞，构造 ROP 链，调用 system 函数，并将 /bin/sh 字符串的地址作为参数传递给 system 函数，从而执行 system("/bin/sh") 获得 shell，进而读取 flag。需要注意的是，在 Ubuntu 18 及以上版本的系统中，调用 system 函数时需要进行栈对齐，因此我们需要在 ROP 链中添加一个 ret 指令的地址来进行栈对齐。
+本题需要利用 ret2libc 技术来获取 shell。程序没有直接给出 system 函数和 /bin/sh 字符串的地址，但我们可以利用程序中已有的 puts 函数和 GOT 表来泄露 libc 的基地址。首先，我们通过栈溢出漏洞构造 ROP 链，调用 puts 函数打印 puts 函数在 GOT 表中的实际地址。然后，我们根据 puts 函数的实际地址和 libc 库文件中 puts 函数的偏移量，计算出 libc 的基地址。接下来，我们可以根据 libc 的基地址和 libc 库文件中 system 函数和 /bin/sh 字符串的偏移量，计算出 system 函数和 /bin/sh 字符串的实际地址。最后，我们再次利用栈溢出漏洞，构造 ROP 链，调用 system 函数，并将 /bin/sh 字符串的地址作为参数传递给 system 函数，从而执行 system("/bin/sh") 获得 shell，进而读取 flag。调用 system 函数时需要进行栈对齐，因此我们需要在 ROP 链中添加一个 ret 指令的地址来进行栈对齐。
 
 ```python
 from pwn import *
